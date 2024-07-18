@@ -48,6 +48,51 @@ const resturant = {
   },
 };
 
+// resturant.numGuests = 0;
+const guests = resturant.numGuests || 10;
+console.log(guests);
+
+//Nullish: null and undefined (mot 0 or '')
+const guestCorrect = resturant.numGuests ?? 10;
+console.log(guestCorrect);
+
+/*
+///////////////////////////
+//Short circuit (&& and ||)
+
+// Logical operators propeties: use any data type, return any data type and short circuiting or circuit evaluation
+
+console.log(___OR___);
+
+console.log(3 || 'Timmy');
+console.log('' || 'Timmy');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+resturant.numGuests = 23; //Will become a falsy value if = 0
+const guest1 = resturant.numGuests ? resturant.numGuests : 10;
+console.log(guest1);
+
+const guest2 = resturant.numGuests || 10;
+console.log(guest2);
+
+console.log(___AND___);
+console, log(0 && 'Timmy');
+console, log(7 && 'Timmy');
+
+console.log('Hello' && 23 && null && 'Timmy');
+
+// Practical example
+if (resturant.orderPizza) {
+  resturant.orderPizza('mushrooms', 'spinach');
+}
+
+resturant.orderPizza && resturant.orderPizza('mushroom', 'spinach');
+
+
+///////////////////////////
 //Rest Pattern and Parameters
 
 //1.) Destructuring
@@ -84,7 +129,7 @@ add(...x);
 resturant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
 resturant.orderPizza('mushroom');
 
-/*
+
 /////////////////////////////
 
 // The spread operator (...)

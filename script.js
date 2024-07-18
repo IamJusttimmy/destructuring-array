@@ -41,7 +41,51 @@ const resturant = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredient) {
+    console.log(mainIngredient);
+    console.log(otherIngredient);
+  },
 };
+
+//Rest Pattern and Parameters
+
+//1.) Destructuring
+//Spread, beacuse on Right side of =
+const arr = [1, 2, ...[3, 4]];
+
+//Rest pattern because on Left side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...resturant.mainMenu,
+  ...resturant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//objects
+const { sat, ...weekdays } = resturant.openingHours;
+console.log(weekdays);
+
+//2.) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+resturant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
+resturant.orderPizza('mushroom');
+
+/*
+/////////////////////////////
 
 // The spread operator (...)
 const arr = [7, 8, 9];
@@ -87,7 +131,7 @@ resturantCopy.name = 'Ristorante Roma';
 console.log(resturantCopy.name);
 console.log(resturant.name);
 
-/*
+
 /////////////////////////////
 resturant.orderDelivery({
   time: '22:30',

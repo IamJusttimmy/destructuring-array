@@ -48,6 +48,36 @@ const resturant = {
   },
 };
 
+const rest1 = {
+  name: 'Capri1',
+  // numGuest: 20,
+  numGuest: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+//OR assignment operator
+// rest1.numGuest = rest1.numGuest || 10;
+// rest2.numGuest = rest2.numGuest || 10;
+// rest1.numGuest ||= 10;
+// rest2.numGuest ||= 10;
+
+//nullish assignment operator (null or undefined)
+rest1.numGuest ??= 10;
+rest2.numGuest ??= 10;
+
+rest2.owner &&= '<ANNONYMOUS>';
+rest1.owner &&= '<ANNONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+
+/*
+////////////////////////
+//The Nullish Coalescing Operator
 // resturant.numGuests = 0;
 const guests = resturant.numGuests || 10;
 console.log(guests);
@@ -56,7 +86,7 @@ console.log(guests);
 const guestCorrect = resturant.numGuests ?? 10;
 console.log(guestCorrect);
 
-/*
+
 ///////////////////////////
 //Short circuit (&& and ||)
 

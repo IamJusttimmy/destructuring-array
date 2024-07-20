@@ -1,53 +1,55 @@
 'use strict';
 
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, //opens 24 hours
+    close: 24,
+  },
+};
+
 const resturant = {
   name: 'Classico Italiano',
   location: 'Nia Angelo Tavanti 23, Firenze Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Brushetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, //opens 24 hours
-      close: 24,
-    },
-  },
 
-  order: function (starterIndex, mainIndex) {
+  //ES6 enhanced object literals
+  openingHours,
+
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = '20:00',
-    address,
-  }) {
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
     console.log(
       `Order recieved ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} and ${time}`
     );
   },
 
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
 
-  orderPizza: function (mainIngredient, ...otherIngredient) {
+  orderPizza(mainIngredient, ...otherIngredient) {
     console.log(mainIngredient);
     console.log(otherIngredient);
   },
 };
 
+/*
+///////////////////
+//Assignment operator
 const rest1 = {
   name: 'Capri1',
   // numGuest: 20,
@@ -75,7 +77,7 @@ rest1.owner &&= '<ANNONYMOUS>';
 console.log(rest1);
 console.log(rest2);
 
-/*
+
 ////////////////////////
 //The Nullish Coalescing Operator
 // resturant.numGuests = 0;

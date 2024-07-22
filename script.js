@@ -47,7 +47,49 @@ const resturant = {
   },
 };
 
+//Looping Objects Keys, Values & Entries
+
+//Property Names
+const properties = Object.key(openingHours);
+console.log(properties);
+
+let openStr = `WE are open on ${properties.length} days:`;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+//Property Values
+const values = Object.values(openingHours);
+console.log(values);
+
+//Entries object
+const entries = Object.entries(openingHours);
+//console.log(entries);
+
+//[key, value]
+for (const [day, { open, close }] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
+
 /*
+//////////////////////////////////////
+//Optional Chaining
+if (resturant.openingHours && resturant.openingHours.mon)
+  console.log(resturant.openingHours.mon.open);
+
+//With optional chaining
+console.log(resturant.openingHours.mon?.open);
+console.log(resturant.openingHours?.mon?.open);
+
+//Example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = resturant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
 ///////////////////
 //Assignment operator
 const rest1 = {
